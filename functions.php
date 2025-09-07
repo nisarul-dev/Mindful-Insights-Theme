@@ -78,3 +78,20 @@ if ( file_exists( get_template_directory() . '/inc/cpts.php' ) ) {
 	include_once get_template_directory() . '/inc/cpts.php';
 }
 
+/**
+ * Custom helper for Carbon Fields for consistent development by Nisarul
+ */
+if ( ! function_exists( 'get_carbon_field' ) ) {
+	function get_carbon_field( $selector, $default_value = '', $post_id = null ) {
+		if ( function_exists( 'carbon_get_post_meta' ) ) {
+			if ( null === $post_id ) {
+				return carbon_get_the_post_meta( $selector ) ?: $default_value;
+			} elseif ( 'option' === $post_id || 'options' === $post_id ) {
+				return carbon_get_theme_option( $selector ) ?: $default_value;
+			} else {
+				return carbon_get_post_meta( $post_id, $selector ) ?: $default_value;
+			}
+		}
+		return $default_value; // fallback if Carbon Fields is not active.
+	}
+}

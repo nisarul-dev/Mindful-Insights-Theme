@@ -1,4 +1,15 @@
 /* Build Tailwind: npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --watch */
 
 @import "tailwindcss";
+@plugin "daisyui";
 
+@theme {
+    --font-sans: "Work Sans", sans-serif;
+    --font-work-sans: "Work Sans", sans-serif;
+    --color-theme-blue: #24417C;
+    --color-theme-blue-hover: #2F56A1;
+}
+
+.header-section .dropdown-content.menu a {
+    @apply text-[16px];
+}
