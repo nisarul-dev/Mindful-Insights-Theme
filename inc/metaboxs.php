@@ -151,6 +151,20 @@ function mit_register_Home_page_sections() {
             Field::make( 'image', 'mit_hero_section_image', __( 'Section Image', 'mindful-insights-theme' ) )
                 ->set_help_text( 'Upload the image for the section.' ),
         ) )
+        ->add_tab( __( 'Why Online Counseling Section', 'mindful-insights-theme' ), array(
+            Field::make( 'text', 'mit_woc_title', __( 'Section Heading', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main heading for the section.' ),
+            
+            Field::make( 'complex', 'mit_woc_slides', 'Slides' )
+                ->add_fields( array(
+                    Field::make( 'text', 'heading', __( 'Slide Heading', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'Heading for the slide.' ),
+                    Field::make( 'textarea', 'description', __( 'Slide Content', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'Short description or Content.' ),
+                    Field::make( 'image', 'image', 'Slide Image' ),
+                ) )
+                ->set_help_text( 'Add 3 slides here.' ),
+        ) )
         ->add_tab( __( 'Explore Our Services Section', 'mindful-insights-theme' ), array(
             Field::make( 'text', 'mit_eos_title', __( 'Section Heading', 'mindful-insights-theme' ) )
                 ->set_help_text( 'Main heading for the section.' ),
@@ -159,33 +173,9 @@ function mit_register_Home_page_sections() {
                 ->add_fields( array(
                     Field::make( 'image', 'icon', 'Icon (SVG)' ),
                     Field::make( 'text', 'title', 'Title' ),
-                    Field::make( 'link', 'link', 'Link to Page' ),
+                    Field::make( 'text', 'link', 'Link to Page' ),
                 ) )
                 ->set_help_text( 'Add 10 blurbs here.' ),
-        ) )
-        ->add_tab( __( 'Why Online Counseling Section', 'mindful-insights-theme' ), array(
-            Field::make( 'text', 'mit_woc_title', __( 'Section Heading', 'mindful-insights-theme' ) )
-                ->set_help_text( 'Main heading for the section.' ),
-
-            // Field::make( 'text', 'mit_woc_subtitle', __( 'Section Sub-Heading', 'mindful-insights-theme' ) )
-            //     ->set_help_text( 'Sub-heading for the section.' ),
-
-            // Field::make( 'textarea', 'mit_woc_content', __( 'Section Content', 'mindful-insights-theme' ) )
-            //     ->set_help_text( 'Short description or Content.' ),
-
-            Field::make( 'complex', 'mit_woc_cards', 'Psychologists' )
-                ->add_fields( array(
-                    Field::make( 'image', 'avatar', 'Avatar' ),
-                    Field::make( 'text', 'name', 'Name' ),
-                    Field::make( 'link', 'position', 'Position' ),
-                ) )
-                ->set_help_text( 'Add 8 psychologists here.' ),
-
-            Field::make( 'text', 'mit_woc_cta_btn_text', __( 'CTA Btn Text', 'mindful-insights-theme' ) )
-                ->set_help_text( 'e.g. View all Consultants' ),
-
-            Field::make( 'text', 'mit_woc_cta_btn_link', __( 'CTA Btn Link', 'mindful-insights-theme' ) )
-                ->set_help_text( 'e.g. /psychologists/' ),
         ) )
         ->add_tab( __( 'Meet Our Full Team Section', 'mindful-insights-theme' ), array(
             Field::make( 'text', 'mit_moft_title', __( 'Section Heading', 'mindful-insights-theme' ) )
@@ -195,7 +185,7 @@ function mit_register_Home_page_sections() {
                 ->add_fields( array(
                     Field::make( 'image', 'avatar', 'Avatar' ),
                     Field::make( 'text', 'name', 'Name' ),
-                    Field::make( 'link', 'position', 'Position' ),
+                    Field::make( 'text', 'position', 'Position' ),
                 ) )
                 ->set_help_text( 'Add 8 psychologists here.' ),
 
