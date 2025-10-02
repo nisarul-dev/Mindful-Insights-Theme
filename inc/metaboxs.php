@@ -186,6 +186,7 @@ function mit_register_Home_page_sections() {
                     Field::make( 'image', 'avatar', 'Avatar' ),
                     Field::make( 'text', 'name', 'Name' ),
                     Field::make( 'text', 'position', 'Position' ),
+                    Field::make( 'text', 'link', 'Link to Page' ),
                 ) )
                 ->set_help_text( 'Add 8 psychologists here.' ),
 

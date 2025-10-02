@@ -106,7 +106,7 @@
 <section class="why-online-counseling-section py-[78px] bg-[#F2FAFF]">
     <div class="container mx-auto px-3 lg:px-2">
         <h1 class="text-black text-center text-balance lg:text-wrap text-2xl md:text-4xl/12 xl:text-5xl/15 mb-[64px] font-semibold">
-            Explore our Services
+            <?php echo esc_html( get_carbon_field('mit_eos_title') ); ?>
         </h1>
         <?php
         if (get_carbon_field('mit_eos_cards')):
@@ -123,7 +123,7 @@
                             ));
                             ?>
                         </div>
-                        <h3 class="text-neutral-700 text-[15px] md:text-[18px] font-medium max-md:text-center">
+                        <h3 class="text-font-gray text-[15px] md:text-[18px] font-medium max-md:text-center">
                             <?php echo esc_html($eos_card['title']); ?>
                         </h3>
                     </a>
@@ -133,5 +133,42 @@
     </div>
 </section>
 <!-- Explore our Services Section Ends -->
+
+<!-- Meet Our Full Team Section Starts -->
+<section class="meet-our-full-team-section py-[78px]">
+    <div class="container mx-auto px-10 lg:px-2">
+        <h1 class="text-black text-center text-balance lg:text-wrap text-2xl md:text-4xl/12 xl:text-5xl/15 mb-[64px] font-semibold">
+            <?php echo esc_html( get_carbon_field('mit_moft_title') ); ?>
+        </h1>
+        <?php
+        if (get_carbon_field('mit_moft_cards')):
+            $moft_cards = get_carbon_field('mit_moft_cards');
+            ?>
+            <div class="cards-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <?php foreach ($moft_cards as $moft_card): ?>
+                    <a class="card-item bg-theme-light-gray hover:bg-gray-200 rounded-[20px] p-[15px] py-[40px] md:p-[20px] md:py-[40px]"
+                        href="<?php echo esc_url($moft_card['link']); ?>">
+                        <div class="image-container">
+                            <?php
+                            echo wp_get_attachment_image($moft_card['avatar'], 'full', false, array(
+                                'class' => 'w-[120px] h-[120px] md:w-[120px] md:h-[120px] object-cover mb-[20px] rounded-[100%] mx-auto'
+                            ));
+                            ?>
+                        </div>
+                        <!-- <div class="self-stretch text-center justify-start text-neutral-700 text-2xl font-medium font-['Work_Sans']">MST. Musfika Akter (Physiologist)</div> -->
+                        <h3 class="text-font-gray text-center text-[18px] md:text-[20px] lg:text-[17px] xl:text-[20px] font-medium">
+                            <?php echo esc_html($moft_card['name']); ?>
+                        </h3>
+                        <p class="text-font-gray text-center text-[18px] md:text-[20px] lg:text-[17px] xl:text-[20px] font-medium">
+                            <?php echo esc_html($moft_card['position']); ?>
+                        </p>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+<!-- Meet Our Full Team Section Ends -->
+
 
 <?php get_footer(); ?>
