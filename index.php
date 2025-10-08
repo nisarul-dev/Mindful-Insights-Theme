@@ -103,7 +103,7 @@
 
 
 <!-- Explore our Services Section Starts -->
-<section class="why-online-counseling-section py-[78px] bg-[#F2FAFF]">
+<section class="why-online-counseling-section py-[78px] bg-theme-bg-light-blue">
     <div class="container mx-auto px-3 lg:px-2">
         <h1 class="text-black text-center text-balance lg:text-wrap text-2xl md:text-4xl/12 xl:text-5xl/15 mb-[64px] font-semibold">
             <?php echo esc_html( get_carbon_field('mit_eos_title') ); ?>
@@ -170,5 +170,39 @@
 </section>
 <!-- Meet Our Full Team Section Ends -->
 
+
+<!-- Testimonials Section Starts -->
+<section class="testimonials-section py-[78px] bg-theme-bg-light-blue">
+    <div class="container mx-auto px-10 lg:px-2">
+        <h1 class="text-black text-center text-balance lg:text-wrap text-2xl md:text-4xl/12 xl:text-5xl/15 mb-[64px] font-semibold">
+            <?php echo esc_html( get_carbon_field('mit_tm_title') ); ?>
+        </h1>
+        <?php
+        if (get_carbon_field('mit_tm_cards')):
+            $mit_tm_cards = get_carbon_field('mit_tm_cards');
+            ?>
+            <div id="stats" class="cards-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <?php foreach ($mit_tm_cards as $mit_tm_card): ?>
+                    <div class="card-item bg-theme-light-gray hover:bg-gray-200 rounded-[20px] p-[15px] py-[40px] md:p-[20px] md:py-[40px]">
+                        <div class="image-container">
+                            <?php
+                            echo wp_get_attachment_image($mit_tm_card['icon'], 'full', false, array(
+                                'class' => 'w-[120px] h-[120px] md:w-[120px] md:h-[120px] object-cover mb-[20px] rounded-[100%] mx-auto'
+                            ));
+                            ?>
+                        </div>
+                        <h3 class="text-font-gray text-center text-[18px] md:text-[20px] lg:text-[17px] xl:text-[20px] font-medium">
+                            <span class="counter" data-target="<?php echo esc_attr( $mit_tm_card['number'] ); ?>"><?php echo esc_html($mit_tm_card['number'] ); ?></span><?php echo esc_html( $mit_tm_card['suffix'] ); ?>
+                        </h3>
+                        <p class="text-font-gray text-center text-[18px] md:text-[20px] lg:text-[17px] xl:text-[20px] font-medium">
+                            <?php echo esc_html($mit_tm_card['content']); ?>
+                        </p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+<!-- Testimonials Section Ends -->
 
 <?php get_footer(); ?>
