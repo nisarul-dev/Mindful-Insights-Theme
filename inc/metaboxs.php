@@ -63,31 +63,43 @@ function mit_register_theme_options() {
     // Global Sections Options.
     Container::make( 'theme_options', __( 'Global Sections' ) )
         ->set_page_parent( $basic_options_container ) // reference to a top level container.
-        ->add_tab( __( 'Latest Blog Posts Slider Section', 'mindful-insights-theme' ), array(
-            Field::make( 'text', 'mit_lbps_title_first_part', __( 'Heading (First Part)', 'mindful-insights-theme' ) )
-                ->set_help_text( 'Main Heading: First Part (Black Color).' ),
+        ->add_tab( __( 'Need Assistance Section', 'mindful-insights-theme' ), array(
+            Field::make( 'text', 'mit_na_title', __( 'Heading', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Section Heading.' ),
 
-            Field::make( 'text', 'mit_lbps_title_last_part', __( 'Heading (Last Part)', 'mindful-insights-theme' ) )
-                ->set_help_text( 'Main Heading: Last Part (Orange Color).' ),
-        ) )
-        ->add_tab( __( 'Connect Legal Advisor Section', 'mindful-insights-theme' ), array(
-            Field::make( 'text', 'mit_cla_title_first_part', __( 'Heading (First Part)', 'mindful-insights-theme' ) )
-                ->set_help_text( 'Main Heading: First Part (Black Color).' ),
-
-            Field::make( 'text', 'mit_cla_title_last_part', __( 'Heading (Last Part)', 'mindful-insights-theme' ) )
-                ->set_help_text( 'Main Heading: Last Part (Orange Color).' ),
-
-            Field::make( 'textarea', 'mit_cla_content', __( 'Section Content', 'mindful-insights-theme' ) )
+            Field::make( 'textarea', 'mit_na_content', __( 'Section Content', 'mindful-insights-theme' ) )
                 ->set_help_text( 'Detailed content for the section.' ),
                 
-            Field::make( 'text', 'mit_cla_cta_btn_text', __( 'CTA Btn Text', 'mindful-insights-theme' ) )
-                ->set_help_text( 'e.g. Contact Us' ),
+            Field::make( 'text', 'mit_na_cta_btn_text', __( 'CTA Btn Text', 'mindful-insights-theme' ) )
+                ->set_help_text( 'e.g. Book a Free Consultation' ),
 
-            Field::make( 'text', 'mit_cla_cta_btn_link', __( 'CTA Btn Link', 'mindful-insights-theme' ) )
+            Field::make( 'text', 'mit_na_cta_btn_link', __( 'CTA Btn Link', 'mindful-insights-theme' ) )
                 ->set_help_text( 'e.g. /contact/' ),
 
-            Field::make( 'image', 'mit_cla_section_img', __( 'Section Image', 'mindful-insights-theme' ) )
-                ->set_help_text( 'Upload an image for the section.' ),
+            Field::make( 'image', 'mit_na_section_bg_img', __( 'Background Image', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Upload an background image for the section.' ),
+        ) )
+        ->add_tab( __( 'FAQ Section', 'mindful-insights-theme' ), array(
+            Field::make( 'text', 'mit_faq_title', __( 'Heading', 'mindful-insights-theme' ) )
+                ->set_help_text( help_text: 'Section Heading.' ),
+
+            Field::make( 'textarea', 'mit_faq_content', __( 'Section Content', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Detailed content for the section.' ),
+
+            Field::make( 'complex', 'mit_faq_left_area_cards', 'FAQ Cards (Left Area)' )
+                ->add_fields( array(
+                    Field::make( 'text', 'question', __( 'Question', 'mindful-insights-theme' ) ),
+                    Field::make( 'textarea', 'answer', __( 'Answer', 'mindful-insights-theme' ) ),
+                ) )
+                ->set_help_text( 'Add 2 FAQs here.' ),
+
+            Field::make( 'complex', 'mit_faq_right_area_cards', 'FAQ Cards (Right Area)' )
+                ->add_fields( array(
+                    Field::make( 'text', 'question', __( 'Question', 'mindful-insights-theme' ) ),
+                    Field::make( 'textarea', 'answer', __( 'Answer', 'mindful-insights-theme' ) ),
+                ) )
+                ->set_help_text( 'Add 7 slides here.' ),
+
         ) );
 
     // Social Links.
@@ -210,13 +222,13 @@ function mit_register_Home_page_sections() {
                 ->set_help_text( 'Add 4 blurbs here.' ),
         ) )
         ->add_tab( __( 'Latest Articles & Videos Section', 'mindful-insights-theme' ), array(
-            Field::make( 'text', 'mit_tav_title', __( 'Section Heading', 'mindful-insights-theme' ) )
+            Field::make( 'text', 'mit_lav_title', __( 'Section Heading', 'mindful-insights-theme' ) )
                 ->set_help_text( 'Main heading for the section.' ),
 
-            Field::make( 'text', 'mit_tav_cta_btn_text', __( 'CTA Btn Text', 'mindful-insights-theme' ) )
+            Field::make( 'text', 'mit_lav_cta_btn_text', __( 'CTA Btn Text', 'mindful-insights-theme' ) )
                 ->set_help_text( 'e.g. Show All' ),
 
-            Field::make( 'text', 'mit_tav_cta_btn_link', __( 'CTA Btn Link', 'mindful-insights-theme' ) )
+            Field::make( 'text', 'mit_lav_cta_btn_link', __( 'CTA Btn Link', 'mindful-insights-theme' ) )
                 ->set_help_text( 'e.g. /blog/' ),
         ) );
 }
