@@ -17,3 +17,7 @@
 .header-section .dropdown-content.menu a {
     @apply text-[16px];
 }
+
+.footer-section .footer-menu li {
+    @apply hover:text-theme-blue-hover;
+}

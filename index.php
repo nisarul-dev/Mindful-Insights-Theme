@@ -284,22 +284,31 @@
 
 
 <!-- Need Assistance Section Starts -->
-<section class="need-assistance-section pt-[78px] pb-[38px]"
-    style="background: url('<?php echo esc_url(get_carbon_field('', '', 'options ')); ?>')">
+<section class="need-assistance-section pt-[98px] pb-[98px]"
+    style="background: url('<?php echo esc_url(wp_get_attachment_image_url( get_carbon_field('mit_na_section_bg_img', '', 'options'), 'full') ); ?>') center center no-repeat; background-size: cover;; ">
     <div class="container mx-auto px-10 lg:px-2">
         <h2
-            class="text-black text-center text-balance lg:text-wrap text-2xl md:text-4xl/12 xl:text-5xl/15 mb-[64px] font-semibold">
-            <?php echo esc_html(get_carbon_field('mit_lav_title')); ?>
+            class="text-white text-center md:text-left text-balance lg:text-wrap text-2xl md:text-4xl/12 xl:text-5xl/15 mb-[24px] font-semibold">
+            <?php echo esc_html(get_carbon_field('mit_na_title', '', 'options')); ?>
         </h2>
         
-        Need Assistance?
+        <h2 class="text-white text-center md:text-left text-balance lg:text-wrap text-lg md:text-xl xl:text-2xl xl:w-[600px]">
+            <?php echo esc_html(get_carbon_field('mit_na_content', '', 'options')); ?>
+        </h2>
+
+        <div class="book-a-free-consultation-container text-center md:text-left mt-10">
+            <a class="btn bg-white text-theme-blue hover:bg-theme-bg-light-blue lg:text-lg xl:text-xl font-medium rounded-full px-15 sm:px-6 py-5  xl:px-12 xl:py-7 border-2 border-transparent"
+                href="<?php echo esc_url(get_carbon_field('mit_na_cta_btn_link', '', 'options') ); ?>">
+                <?php echo esc_html(get_carbon_field('mit_na_cta_btn_text', '', 'options') ); ?>
+            </a>
+        </div>
 
     </div>
 </section>
 <!--  Need Assistance Section Ends -->
 
 <!-- FAQ Section Starts  -->
-<section class="faq-section pt-[78px] pb-[38px]">
+<section class="faq-section pt-[78px] pb-[58px]">
     <div class="container mx-auto px-5 lg:px-2">
         <div class="grid grid-cols-1 md:grid-cols-2 md:gap-12">
             <div class="left-area">
@@ -310,7 +319,6 @@
                 <p class="text-font-gray text-center md:text-left text-lg/[32px] max-lg:text-[16px]/[24px] mb-[44px] max-lg:mb-[42px]">
                     <?php echo esc_html(get_carbon_field('mit_faq_content', '', 'options') ); ?>
                 </p>
-            
 
                 <?php 
                 if (get_carbon_field('mit_faq_left_area_cards', '', 'options') ) :
