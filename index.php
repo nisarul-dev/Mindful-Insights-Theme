@@ -282,6 +282,57 @@
 </section>
 <!-- Latest Articles and Video Section Ends -->
 
+<!-- Seminar & Workshops Section Starts -->
+<section class="seminar-workshops-section py-[78px] max-md:py-[40px] bg-[#F2FAFF]">
+    <div class="container mx-auto px-5 lg:px-2 max-sm:pt-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            <!-- Left Image Grid -->
+            <div class="image-grid grid max-[1520px]:grid-cols-2 grid-cols-3 grid-rows-2 gap-4">
+                <div class="col-span-2 row-span-2 lg:col-span-2 lg:row-span-2">
+                    <?php echo wp_get_attachment_image(
+                        get_carbon_field('mit_sw_image_1'),
+                        'full',
+                        false,
+                        ['class' => 'rounded-[10px] w-full h-full max-[1520px]:max-h-[340px] object-cover']
+                    ); ?>
+                </div>
+
+                <div>
+                    <?php echo wp_get_attachment_image(
+                        get_carbon_field('mit_sw_image_2'),
+                        'full',
+                        false,
+                        ['class' => 'rounded-[10px] w-full h-full object-cover']
+                    ); ?>
+                </div>
+
+                <div>
+                    <?php echo wp_get_attachment_image(
+                        get_carbon_field('mit_sw_image_3'),
+                        'full',
+                        false,
+                        ['class' => 'rounded-[10px] w-full h-full object-cover']
+                    ); ?>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="right-area">
+                <h1 class="text-black text-balance text-2xl md:text-4xl xl:text-5xl mb-7">
+                    <?php echo esc_html(get_carbon_field('mit_sw_title')); ?>
+                </h1>
+
+                <div class="text-font-gray text-lg md:text-xl leading-[32px] mb-4">
+                    <?php echo get_carbon_field('mit_sw_description_main'); ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Seminar & Workshops Section Ends -->
+
 
 <!-- Need Assistance Section Starts -->
 <section class="need-assistance-section pt-[98px] pb-[98px]"

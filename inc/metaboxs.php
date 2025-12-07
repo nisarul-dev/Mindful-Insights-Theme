@@ -56,8 +56,9 @@ function mit_register_theme_options() {
             Field::make( 'text', 'mit_footer_facebook_link', __( 'Facebook Link', 'mindful-insights-theme' ) ),
             Field::make( 'text', 'mit_footer_youtube_link', __( 'Youtube Link', 'mindful-insights-theme' ) ),
             Field::make( 'text', 'mit_footer_linkedin_link', __( 'LinkedIn Link', 'mindful-insights-theme' ) ),
-            Field::make( 'text', 'mit_footer_copyright_text', __( 'Copyright Text', 'mindful-insights-theme' ) ),
-            
+            Field::make( 'text', 'mit_footer_phone_number', __( 'Phone Number - CTA Button', 'mindful-insights-theme' ) ),
+            Field::make( 'text', 'mit_footer_phone_number_link', __( 'Phone Number - CTA Button', 'mindful-insights-theme' ) ),
+            Field::make( 'rich_text', 'mit_footer_copyright_text', __( 'Copyright Text', 'mindful-insights-theme' ) ),
         ) );
 
     // Global Sections Options.
@@ -230,7 +231,24 @@ function mit_register_Home_page_sections() {
 
             Field::make( 'text', 'mit_lav_cta_btn_link', __( 'CTA Btn Link', 'mindful-insights-theme' ) )
                 ->set_help_text( 'e.g. /blog/' ),
+        ) )
+        ->add_tab( __( 'Single Workspace Section', 'mindful-insights-theme' ), array(
+            Field::make( 'text', 'mit_sw_title', __( 'Section Title', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main heading for the workspace section.' ),
+
+            Field::make( 'rich_text', 'mit_sw_description_main', __( 'Main Description', 'mindful-insights-theme' ) )
+                ->set_help_text( 'This appears first. The “Show More” button reveals the second paragraph.' ),
+
+            Field::make( 'image', 'mit_sw_image_1', __( 'Large Left Image', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Upload the main large image.' ),
+
+            Field::make( 'image', 'mit_sw_image_2', __( 'Small Top-Right Image', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Upload the top-right small image.' ),
+
+            Field::make( 'image', 'mit_sw_image_3', __( 'Small Bottom-Right Image', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Upload the bottom-right small image.' ),
         ) );
+
 }
 add_action( 'carbon_fields_register_fields', 'mit_register_Home_page_sections' );
 
