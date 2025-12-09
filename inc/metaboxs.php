@@ -247,6 +247,23 @@ function mit_register_Home_page_sections() {
 
             Field::make( 'image', 'mit_sw_image_3', __( 'Small Bottom-Right Image', 'mindful-insights-theme' ) )
                 ->set_help_text( 'Upload the bottom-right small image.' ),
+        ) )
+        ->add_tab( __( 'Feedback Section', 'mindful-insights-theme' ), array(
+            Field::make( 'text', 'mit_feedback_title', __( 'Section Heading', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main heading for the feedback section.' ),
+
+            Field::make( 'complex', 'mit_feedback_cards', __( 'Feedback Cards', 'mindful-insights-theme' ) )
+                ->add_fields( array(
+                    Field::make( 'textarea', 'feedback', __( 'Feedback Text', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'The testimonial or review content.' ),
+
+                    Field::make( 'text', 'name', __( 'Person Name', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'Name of the person giving the feedback.' ),
+
+                    Field::make( 'image', 'avatar', __( 'Avatar', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'Upload a round avatar image.' ),
+                ) )
+                ->set_help_text( 'Add 4 feedback cards here.' ),
         ) );
 
 }
