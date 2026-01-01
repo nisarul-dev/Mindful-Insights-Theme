@@ -6,6 +6,10 @@
 get_header()
 ?>
 
+<?php get_template_part( 'template-parts/banner-1' ); ?>
+
+
+
 <?php get_template_part( 'template-parts/need-assistance' ); ?>
 
 <?php get_template_part( 'template-parts/faq' ); ?>

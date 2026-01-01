@@ -1,11 +1,11 @@
 <!-- Footer Section starts -->
 <footer class="footer-section bg-theme-light-gray pt-12">
     <div class="container mx-auto px-6 md:px-2">
-        <div class="flex flex-col lg:flex-row justify-between">
+        <div class="flex flex-col lg:flex-row justify-between lg:gap-5">
 
             <!-- Left Area -->
             <div class="lg:w-1/2 mb-12 lg:mb-0">
-                <div class="footer-image-wrapper">
+                <div class="footer-image-wrapper flex justify-center lg:justify-start">
                     <?php
                     echo wp_get_attachment_image(get_carbon_field('mit_footer_logo', '', 'options'), 'full', false, array(
                         'class' => 'max-h-[90px] mb-6'
@@ -13,7 +13,7 @@
                     ?>
                 </div>
 
-                <p class="text-font-gray text-lg leading-[30px] xl:w-[550px]">
+                <p class="text-font-gray text-center text-balance lg:text-left text-lg leading-[30px] xl:w-[550px]">
                     <?php echo esc_html(get_carbon_field('mit_footer_desc', '', 'options') ); ?>
                 </p>
             </div>
@@ -23,19 +23,19 @@
 
                 <!-- Main Links -->
                 <div>
-                    <h3 class="text-xl font-semibold text-black mb-6"><?php echo esc_html(get_carbon_field('mit_footer_menu_title', '', 'options') ); ?></h3>
+                    <h3 class="text-xl text-center lg:text-left font-semibold text-black mb-6"><?php echo esc_html(get_carbon_field('mit_footer_menu_title', '', 'options') ); ?></h3>
                     <?php
                     wp_nav_menu(array(
                         'theme_location' => 'footer-menu',
-                        'menu_class' => 'footer-menu space-y-4 text-lg text-font-gray',
+                        'menu_class' => 'footer-menu text-center lg:text-left space-y-4 text-lg text-font-gray',
                         'container' => false,
                     ));
                     ?>
                 </div>
 
                 <!-- Social + Call Button -->
-                <div class="mt-10 lg:mt-0">
-                    <div class="flex items-center gap-5 mb-8">
+                <div class="mt-12 lg:mt-0 text-center lg:text-right">
+                    <div class="flex items-center justify-center lg:justify-start gap-5 mb-8">
                         <?php if( get_carbon_field('mit_footer_facebook_link', '', 'options') ) : ?>
                         <a target="_black" href="<?php echo esc_url(get_carbon_field('mit_footer_facebook_link', '', 'options') ); ?>" class="w-[50px] h-[50px] rounded-full bg-theme-blue hover:bg-gray-600 text-white flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -58,7 +58,7 @@
                     </div>
 
                     <a href="<?php echo esc_html(get_carbon_field('mit_footer_phone_number_link', '', 'options') ); ?>"
-                       class="inline-block bg-theme-blue hover:bg-theme-blue-hover text-white font-medium text-lg px-10 py-4 rounded-full">
+                       class="inline-block bg-theme-blue hover:bg-theme-blue-hover text-white font-medium text-lg px-10 lg:px-5 xl:px-10 py-4 rounded-full">
                         <?php echo esc_html(get_carbon_field('mit_footer_phone_number', '', 'options') ); ?>
                     </a>
                 </div>

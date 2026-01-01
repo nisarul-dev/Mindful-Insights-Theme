@@ -270,3 +270,41 @@ function mit_register_Home_page_sections() {
 add_action( 'carbon_fields_register_fields', 'mit_register_Home_page_sections' );
 
 
+/**
+ * Register custom meta fields for Banner-1 section on a specific page using Carbon Fields.
+ *
+ * This function adds a structured section for the page with ID 7 (Home Page).
+ * @return void
+ */
+function mit_register_banner_1_section() {
+    Container::make( 'post_meta', __( 'Page Sections', 'mindful-insights-theme' ) )
+        ->where( 'post_id', 'IN', array(
+            15, // Services Page
+            17, // Psychologist Page
+            19, // About Page
+            21, // Contact Page
+        ) )
+        ->add_tab( __( 'Banner Section', 'mindful-insights-theme' ), array(
+            Field::make( 'text', 'mit_banner_1_title', __( 'Section Heading', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main heading for the section.' ),
+
+            Field::make( 'textarea', 'mit_banner_1_content', __( 'Section Content', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Short description or Content.' ),
+
+            Field::make( 'text', 'mit_banner_1_cta_btn_text_1', __( 'CTA Btn Text 1', 'mindful-insights-theme' ) )
+                ->set_help_text( 'e.g. Online Appointment' ),
+
+            Field::make( 'text', 'mit_banner_1_cta_btn_link_1', __( 'CTA Btn Link 1', 'mindful-insights-theme' ) )
+                ->set_help_text( 'e.g. /contact/' ),
+
+            Field::make( 'text', 'mit_banner_1_cta_btn_text_2', __( 'CTA Btn Text 2', 'mindful-insights-theme' ) )
+                ->set_help_text( 'e.g. Explore Our Services' ),
+
+            Field::make( 'text', 'mit_banner_1_cta_btn_link_2', __( 'CTA Btn Link 2', 'mindful-insights-theme' ) )
+                ->set_help_text( 'e.g. /services/' ),
+        ) );
+
+}
+add_action( 'carbon_fields_register_fields', 'mit_register_banner_1_section' );
+
+
