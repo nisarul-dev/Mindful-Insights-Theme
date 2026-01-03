@@ -308,3 +308,79 @@ function mit_register_banner_1_section() {
 add_action( 'carbon_fields_register_fields', 'mit_register_banner_1_section' );
 
 
+/**
+ * Register Services Page sections using Carbon Fields
+ *
+ * This function adds structured fields for the Services page only.
+ *
+ * @return void
+ */
+function mit_register_services_page_sections() {
+
+    Container::make( 'post_meta', __( 'Services Page Sections', 'mindful-insights-theme' ) )
+        ->where( 'post_id', '=', 15 ) // Services Page ID
+        ->add_tab( __( 'Services Section', 'mindful-insights-theme' ), array(
+
+            Field::make( 'complex', 'mit_services_page_items', __( 'Service Blocks', 'mindful-insights-theme' ) )
+                ->set_layout( 'tabbed-horizontal' )
+                ->add_fields( array(
+
+                    Field::make( 'text', 'service_id', __( 'Service ID', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'Unique identifier for the service block.' ),
+
+                    Field::make( 'text', 'title', __( 'Service Title', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'e.g. Individual Counseling' ),
+
+                    Field::make( 'rich_text', 'description', __( 'Service Description', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'Full description shown on the Services page.' ),
+
+                    Field::make( 'image', 'image', __( 'Service Image', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'Recommended size: 900×600 or larger.' ),
+
+                    Field::make( 'select', 'layout', __( 'Image Position (Desktop)', 'mindful-insights-theme' ) )
+                        ->set_options( array(
+                            'left'  => __( 'Image Left', 'mindful-insights-theme' ),
+                            'right' => __( 'Image Right', 'mindful-insights-theme' ),
+                        ) )
+                        ->set_default_value( 'right' ),
+
+                    Field::make( 'text', 'cta_text', __( 'CTA Button Text', 'mindful-insights-theme' ) )
+                        ->set_default_value( 'View Consultants' ),
+
+                    Field::make( 'text', 'cta_link', __( 'CTA Button Link', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'e.g. /psychologists/' ),
+
+                ) )
+                ->set_help_text( 'Add services like Individual, Group, Family Counseling.' ),
+
+        ) );
+}
+add_action( 'carbon_fields_register_fields', 'mit_register_services_page_sections' );
+
+/**
+ * Psychologist Meta Fields
+ */
+function mit_register_psychologist_fields() {
+
+    Container::make( 'post_meta', __( 'Psychologist Details', 'mindful-insights-theme' ) )
+        ->where( 'post_type', '=', 'psychologist' )
+        ->add_fields( array(
+
+            Field::make( 'text', 'mit_psy_designation', 'Designation' )
+                ->set_help_text( 'e.g. Physiologist' ),
+
+            Field::make( 'textarea', 'mit_psy_qualification', 'Qualifications' )
+                ->set_help_text( 'MBBS, MD (BSMMU), BCS (Health)' ),
+
+            Field::make( 'text', 'mit_psy_fee', 'Consultation Fee' )
+                ->set_help_text( 'e.g. 5000 BDT' ),
+
+            Field::make( 'text', 'mit_psy_cta_text', 'CTA Button Text' )
+                ->set_default_value( 'Book Appointment' ),
+
+            Field::make( 'text', 'mit_psy_cta_link', 'CTA Button Link' )
+                ->set_help_text( 'External or internal booking link' ),
+
+        ) );
+}
+add_action( 'carbon_fields_register_fields', 'mit_register_psychologist_fields' );

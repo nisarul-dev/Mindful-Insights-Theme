@@ -49,18 +49,41 @@
                 
                 <?php if (have_posts()): ?>
                     <div class="posts-grid grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <?php while (have_posts()): the_post(); ?>
+                        <?php
+                        while (have_posts()): the_post(); 
+                            $is_video = has_category('video'); // category slug
+                        ?>
                             <article class="post-card mb-10">
                                 
                                 <?php if (has_post_thumbnail()): ?>
                                 <div class="image-container rounded-[20px] overflow-hidden relative mb-6 group">
-                                    <a href="<?php echo esc_url(get_the_permalink()); ?>">
-                                        <?php the_post_thumbnail('full', array('class' => 'w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-300')); ?>
+
+                                    <a href="<?php echo esc_url(get_the_permalink()); ?>" class="block relative">
+
+                                        <?php the_post_thumbnail(
+                                            'full',
+                                            array('class' => 'w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-300')
+                                        ); ?>
+
+                                        <?php if ($is_video): ?>
+                                            <!-- PLAY ICON OVERLAY -->
+                                            <span class="absolute inset-0 flex items-center justify-center">
+                                                <svg width="90" height="90" viewBox="0 0 24 24" fill="white" stroke="#24417C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="drop-shadow-lg">
+                                                    <path d="M8 5V19L19 12L8 5Z"/>
+                                                </svg>
+                                            </span>
+                                        <?php endif; ?>
+
                                     </a>
+
                                     <div class="post-date absolute bottom-0 left-0 text-[14px] px-[16px] py-[8px] bg-[#F5F5F5]">
                                         <?php echo esc_html(get_the_date('M j, Y')); ?>
                                     </div>
+
                                 </div>
+
                                 <?php endif; ?>
 
                                 <?php if (has_category()): ?>
@@ -93,7 +116,7 @@
 
                                 <a class="text-font-gray text-[16px] md:text-[18px] font-bold flex items-center gap-1.5 hover:gap-2.5 duration-[300ms]" 
                                    href="<?php echo esc_url(get_the_permalink()); ?>">
-                                    Read Article
+                                    <?php echo $is_video ? 'Watch Video' : 'Read Article'; ?>
                                     <svg width="18" height="15" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M18.8203 9.36719L11.9453 16.2422C11.6875 16.5 11.3438 16.6289 11 16.6289C10.6133 16.6289 10.2695 16.5 10.0117 16.2422C9.45312 15.7266 9.45312 14.8242 10.0117 14.3086L14.5234 9.75391H1.375C0.601562 9.75391 0 9.15234 0 8.37891C0 7.64844 0.601562 7.00391 1.375 7.00391H14.5234L10.0117 2.49219C9.45312 1.97656 9.45312 1.07422 10.0117 0.558594C10.5273 0 11.4297 0 11.9453 0.558594L18.8203 7.43359C19.3789 7.94922 19.3789 8.85156 18.8203 9.36719Z" fill="black"/>
                                     </svg>

@@ -56,8 +56,10 @@
             <!-- Main Content Area -->
             <div class="lg:col-span-8">
                 <?php if (have_posts()): while (have_posts()): the_post(); ?>
-                    
-                    <?php if (has_post_thumbnail()): ?>
+                    <?php
+                    $is_video = has_category('video'); // category slug
+                    ?>
+                    <?php if ( has_post_thumbnail() && ! $is_video ): ?>
                     <div class="featured-image mb-10 rounded-[20px] overflow-hidden">
                         <?php the_post_thumbnail('full', array('class' => 'w-full h-auto object-cover')); ?>
                     </div>
@@ -181,5 +183,14 @@
         </div>
     </div>
 </section>
+
+<style>
+    .wp-block-embed.is-type-video iframe {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+</style>
 
 <?php get_footer(); ?>
