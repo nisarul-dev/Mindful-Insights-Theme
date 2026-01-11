@@ -13,6 +13,7 @@
     --color-theme-light-gray: #F5F5F5;
     --color-theme-light-blue: #D5E0F6;
     --color-font-gray: #3A3A3A;
+    --color-font-gray-light: #555555;
 }
 
 .header-section .dropdown-content.menu a {
@@ -21,4 +22,61 @@
 
 .footer-section .footer-menu li {
     @apply hover:text-theme-blue-hover;
+}
+
+/* form design */
+
+.cf7-title {
+  @apply text-2xl font-[500] mb-2;
+}
+
+.cf7-subtitle {
+  @apply text-[#3A3A3A] mb-8;
+}
+
+.cf7-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.cf7-field label {
+  @apply block font-medium mb-1;
+}
+
+.cf7-input {
+  @apply w-full border border-[#A8A8A8] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600;
+}
+
+.cf7-textarea {
+  @apply w-full border border-[#A8A8A8] min-h-55 rounded-lg px-4 py-3 h-40 focus:outline-none focus:ring-2 focus:ring-blue-600;
+}
+
+.cf7-full {
+  @apply mt-6;
+}
+
+.cf7-note {
+  @apply mt-6 bg-[#F5F5F5] px-8 py-4  rounded-lg flex flex-wrap gap-3 items-start;
+}
+
+.cf7-icon {
+  @apply text-green-600 text-xl;
+}
+
+.cf7-note span {
+  @apply text-[16px] font-[500] text-gray-600 mb-1 block;
+}
+
+.cf7-note p {
+  @apply text-sm font-[300] text-[#808080];
+}
+
+.cf7-submit-wrap {
+  @apply mt-8 relative;
+}
+.cf7-submit-wrap .wpcf7-spinner {
+  @apply absolute top-4 left-0;
+}
+
+.cf7-submit {
+  @apply w-full bg-theme-blue hover:bg-theme-blue-hover hover:cursor-pointer text-white font-semibold py-4 rounded-full text-lg;
 }

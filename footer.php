@@ -35,7 +35,7 @@
 
                 <!-- Social + Call Button -->
                 <div class="mt-12 lg:mt-0 text-center lg:text-right">
-                    <div class="flex items-center justify-center lg:justify-start gap-5 mb-8">
+                    <div class="flex items-center justify-center lg:justify-start gap-6 mt-15 max-lg:mt-0 mb-10">
                         <?php if( get_carbon_field('mit_footer_facebook_link', '', 'options') ) : ?>
                         <a target="_black" href="<?php echo esc_url(get_carbon_field('mit_footer_facebook_link', '', 'options') ); ?>" class="w-[50px] h-[50px] rounded-full bg-theme-blue hover:bg-gray-600 text-white flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -58,7 +58,7 @@
                     </div>
 
                     <a href="<?php echo esc_html(get_carbon_field('mit_footer_phone_number_link', '', 'options') ); ?>"
-                       class="inline-block bg-theme-blue hover:bg-theme-blue-hover text-white font-medium text-lg px-10 lg:px-5 xl:px-10 py-4 rounded-full">
+                       class="btn bg-theme-blue hover:bg-theme-blue-hover text-white lg:text-lg xl:text-xl font-[500] rounded-full px-6 py-5 xl:px-7 xl:py-6 border-2 border-transparent">
                         <?php echo esc_html(get_carbon_field('mit_footer_phone_number', '', 'options') ); ?>
                     </a>
                 </div>

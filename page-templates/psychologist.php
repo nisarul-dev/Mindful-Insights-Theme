@@ -22,7 +22,7 @@ if ($query->have_posts()) :
 
             <?php while ($query->have_posts()) : $query->the_post(); ?>
 
-                <div class="bg-[#F2FAFF] px-[60px] py-[65px]">
+                <div class="bg-[#F2FAFF] px-[58px] py-[63px]">
 
                     <!-- Avatar -->
                     <?php if (has_post_thumbnail()) : ?>
@@ -46,7 +46,9 @@ if ($query->have_posts()) :
 
                     <!-- Fee Button -->
                     <a href="<?php echo esc_url(get_carbon_field('mit_psy_cta_link')); ?>"
-                       class="inline-block bg-theme-blue hover:bg-theme-blue-hover text-white text-[16px] font-medium px-[36px] py-[14px] rounded-full transition">
+                       class="inline-block bg-theme-blue hover:bg-theme-blue-hover text-white text-[16px] font-medium px-[36px] py-[14px] rounded-full transition"
+                       target="_blank"
+                    >
                         <?php echo esc_html(get_carbon_field('mit_psy_cta_text')); ?>
                     </a>
 
