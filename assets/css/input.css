@@ -24,14 +24,32 @@
     @apply hover:text-theme-blue-hover;
 }
 
+@media (max-width: 1023px) {
+    .footer-section .footer-menu li {
+        @apply mb-[8px];
+    }
+}
+
 /* form design */
 
 .cf7-title {
   @apply text-2xl font-[500] mb-2;
 }
 
+@media (max-width: 1023px) {
+    .cf7-title {
+        @apply text-xl;
+    }
+}
+
 .cf7-subtitle {
   @apply text-[#3A3A3A] mb-8;
+}
+
+@media (max-width: 1023px) {
+    .cf7-subtitle {
+        @apply text-sm;
+    }
 }
 
 .cf7-grid {
@@ -55,7 +73,13 @@
 }
 
 .cf7-note {
-  @apply mt-6 bg-[#F5F5F5] px-8 py-4  rounded-lg flex flex-wrap gap-3 items-start;
+  @apply mt-6 bg-[#F5F5F5] px-8 py-4 rounded-lg grid grid-cols-[auto_1fr] items-center gap-2 md:gap-3;
+}
+
+@media (max-width: 1023px) {
+    .cf7-note {
+        @apply px-4;
+    }
 }
 
 .cf7-icon {
@@ -63,11 +87,15 @@
 }
 
 .cf7-note span {
-  @apply text-[16px] font-[500] text-gray-600 mb-1 block;
+  @apply text-[13px] md:text-[16px] font-[500] text-gray-600 mb-1 block;
 }
 
 .cf7-note p {
-  @apply text-sm font-[300] text-[#808080];
+  @apply text-[12px] md:text-sm font-[300] text-[#808080];
+}
+
+.cf7-note p.w-full {
+    @apply col-span-2;
 }
 
 .cf7-submit-wrap {
@@ -78,5 +106,5 @@
 }
 
 .cf7-submit {
-  @apply w-full bg-theme-blue hover:bg-theme-blue-hover hover:cursor-pointer text-white font-semibold py-4 rounded-full text-lg;
+  @apply w-full bg-theme-blue hover:bg-theme-blue-hover hover:cursor-pointer text-white font-semibold py-4 px-2 rounded-full text-base md:text-lg;
 }

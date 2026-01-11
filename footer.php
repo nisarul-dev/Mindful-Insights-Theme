@@ -4,7 +4,7 @@
         <div class="flex flex-col lg:flex-row justify-between lg:gap-5">
 
             <!-- Left Area -->
-            <div class="lg:w-1/2 mb-12 lg:mb-0">
+            <div class="lg:w-1/2 mb-20 lg:mb-0">
                 <div class="footer-image-wrapper flex justify-center lg:justify-start">
                     <?php
                     echo wp_get_attachment_image(get_carbon_field('mit_footer_logo', '', 'options'), 'full', false, array(
@@ -13,7 +13,7 @@
                     ?>
                 </div>
 
-                <p class="text-font-gray text-center text-balance lg:text-left text-lg leading-[30px] xl:w-[550px]">
+                <p class="text-font-gray max-lg:text-justify lg:text-balance text-left text-lg max-sm:text-[16px] leading-[30px] xl:w-[550px]">
                     <?php echo esc_html(get_carbon_field('mit_footer_desc', '', 'options') ); ?>
                 </p>
             </div>
@@ -34,7 +34,7 @@
                 </div>
 
                 <!-- Social + Call Button -->
-                <div class="mt-12 lg:mt-0 text-center lg:text-right">
+                <div class="mt-18 lg:mt-0 text-center lg:text-right">
                     <div class="flex items-center justify-center lg:justify-start gap-6 mt-15 max-lg:mt-0 mb-10">
                         <?php if( get_carbon_field('mit_footer_facebook_link', '', 'options') ) : ?>
                         <a target="_black" href="<?php echo esc_url(get_carbon_field('mit_footer_facebook_link', '', 'options') ); ?>" class="w-[50px] h-[50px] rounded-full bg-theme-blue hover:bg-gray-600 text-white flex items-center justify-center">

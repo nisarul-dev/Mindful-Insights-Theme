@@ -18,7 +18,7 @@ get_header()
             Get Your Free Consultation
         </h2>
 
-        <p class="text-font-gray-light text-balance text-lg leading-[32px] mb-11">
+        <p class="text-font-gray-light text-balance text-lg max-lg:text-[16px] leading-[32px] max-lg:leading-[1.7em] mb-11">
             Don't wait. The sooner you call, the sooner we can start fighting for the compensation
             you deserve. All consultations are completely free and confidential.
         </p>
@@ -29,7 +29,7 @@ get_header()
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
       
       <!-- Form Card -->
-      <div class="lg:col-span-2 border border-[#A8A8A8] rounded-2xl px-14 py-12">
+      <div class="lg:col-span-2 border border-[#A8A8A8] rounded-2xl px-14 max-lg:px-8 py-12">
         <?php echo do_shortcode('[contact-form-7 id="6e45351" title="Contact form"]'); ?>
       </div>
 
@@ -59,7 +59,7 @@ get_header()
                 </svg>
               </span>
               <div>
-                <p class="font-medium">mindfulinsights@gmail.com</p>
+                <p class="font-medium">mindfulinsightsbd@gmail.com</p>
                 <p class="text-sm font-[300] text-[#808080]">Email us anytime</p>
               </div>
             </div>
@@ -79,12 +79,12 @@ get_header()
           </div>
 
           <a href="tel:+8801774848960"
-            class="block text-center mt-11 w-full bg-theme-blue hover:bg-theme-blue-hover text-white py-3 rounded-full transition">
+            class="block text-sm sm:text-base text-center mt-11 w-full bg-theme-blue hover:bg-theme-blue-hover text-white py-3 px-1 rounded-full transition">
             Call Now For Free Consultation
           </a>
 
           <a href="https://wa.me/8801774848960?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment."
-            class="block text-center mt-4 w-full bg-[#128C7E] hover:bg-green-800 text-white py-3 rounded-full transition"
+            class="block text-sm sm:text-base text-center mt-4 w-full bg-[#128C7E] hover:bg-green-800 text-white py-3 px-1 rounded-full transition"
             target="_blank"
           >
             <div class="flex gap-2 justify-center">
