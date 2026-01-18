@@ -59,7 +59,7 @@ get_header()
                                 'full',
                                 false,
                                 array(
-                                    'class' => 'w-full h-[560px] object-cover rounded-[24px]'
+                                    'class' => 'max-lg:h-[300px] h-[560px] object-cover rounded-[24px]'
                                 )
                             );
                             ?>

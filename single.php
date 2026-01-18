@@ -191,6 +191,11 @@
         object-fit: cover;
         border-radius: 20px;
     }
+    @media (max-width: 768px) {
+        .wp-block-embed.is-type-video iframe {
+            height: 300px;
+        }
+    }
 </style>
 
 <?php get_footer(); ?>

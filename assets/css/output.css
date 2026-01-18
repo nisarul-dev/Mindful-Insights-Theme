@@ -2418,6 +2418,9 @@
       gap: calc(0.25rem * 4);
     }
   }
+  .m-auto {
+    margin: auto;
+  }
   .filter {
     display: flex;
     flex-wrap: wrap;
@@ -2984,6 +2987,9 @@
   .h-\[55px\] {
     height: 55px;
   }
+  .h-\[60px\] {
+    height: 60px;
+  }
   .h-\[80px\] {
     height: 80px;
   }
@@ -3386,6 +3392,9 @@
   .px-\[16px\] {
     padding-inline: 16px;
   }
+  .px-\[18px\] {
+    padding-inline: 18px;
+  }
   .px-\[28px\] {
     padding-inline: 28px;
   }
@@ -3536,6 +3545,9 @@
   }
   .text-\[18px\] {
     font-size: 18px;
+  }
+  .text-\[21px\] {
+    font-size: 21px;
   }
   .text-\[22px\] {
     font-size: 22px;
@@ -3907,6 +3919,16 @@
       display: none;
     }
   }
+  .max-lg\:h-\[300px\] {
+    @media (width < 64rem) {
+      height: 300px;
+    }
+  }
+  .max-lg\:h-\[320px\] {
+    @media (width < 64rem) {
+      height: 320px;
+    }
+  }
   .max-lg\:h-\[380px\] {
     @media (width < 64rem) {
       height: 380px;
@@ -3984,6 +4006,11 @@
       text-align: center;
     }
   }
+  .max-md\:text-justify {
+    @media (width < 48rem) {
+      text-align: justify;
+    }
+  }
   .max-md\:text-xl {
     @media (width < 48rem) {
       font-size: var(--text-xl);
@@ -4019,6 +4046,16 @@
     @media (width >= 40rem) {
       font-size: var(--text-base);
       line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .md\:mr-auto {
+    @media (width >= 48rem) {
+      margin-right: auto;
+    }
+  }
+  .md\:ml-0 {
+    @media (width >= 48rem) {
+      margin-left: calc(var(--spacing) * 0);
     }
   }
   .md\:h-\[52px\] {
@@ -4066,9 +4103,24 @@
       padding-inline: calc(var(--spacing) * 2);
     }
   }
+  .md\:px-\[58px\] {
+    @media (width >= 48rem) {
+      padding-inline: 58px;
+    }
+  }
+  .md\:py-\[14px\] {
+    @media (width >= 48rem) {
+      padding-block: 14px;
+    }
+  }
   .md\:py-\[40px\] {
     @media (width >= 48rem) {
       padding-block: 40px;
+    }
+  }
+  .md\:text-center {
+    @media (width >= 48rem) {
+      text-align: center;
     }
   }
   .md\:text-left {
@@ -4110,6 +4162,16 @@
     @media (width >= 48rem) {
       font-size: var(--text-xl);
       line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .md\:text-\[15px\] {
+    @media (width >= 48rem) {
+      font-size: 15px;
+    }
+  }
+  .md\:text-\[16px\] {
+    @media (width >= 48rem) {
+      font-size: 16px;
     }
   }
   .md\:text-\[18px\] {
@@ -4416,6 +4478,11 @@
   .xl\:text-\[20px\] {
     @media (width >= 80rem) {
       font-size: 20px;
+    }
+  }
+  .xl\:text-\[25px\] {
+    @media (width >= 80rem) {
+      font-size: 25px;
     }
   }
   .xl\:text-\[30px\] {

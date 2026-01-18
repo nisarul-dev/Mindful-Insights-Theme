@@ -7,7 +7,7 @@
                     <?php echo esc_html(get_carbon_field('mit_faq_title', '', 'options') ); ?>
                 </h2>
 
-                <p class="text-font-gray text-center md:text-left text-lg/[32px] max-lg:text-[16px]/[24px] mb-[44px] max-lg:mb-[42px]">
+                <p class="text-font-gray text-left max-md:text-justify text-lg/[32px] max-lg:text-[16px]/[24px] mb-[44px] max-lg:mb-[42px]">
                     <?php echo esc_html(get_carbon_field('mit_faq_content', '', 'options') ); ?>
                 </p>
 

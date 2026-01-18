@@ -22,17 +22,17 @@ if ($query->have_posts()) :
 
             <?php while ($query->have_posts()) : $query->the_post(); ?>
 
-                <div class="bg-[#F2FAFF] px-[58px] py-[63px]">
+                <div class="bg-[#F2FAFF] px-[18px] md:px-[58px] py-[63px] text-center md:text-left">
 
                     <!-- Avatar -->
                     <?php if (has_post_thumbnail()) : ?>
                         <?php the_post_thumbnail('medium', [
-                            'class' => 'w-[110px] h-[110px] rounded-full mr-auto mb-[20px] object-cover'
+                            'class' => 'w-[110px] h-[110px] rounded-full m-auto md:ml-0 mb-[20px] object-cover'
                         ]); ?>
                     <?php endif; ?>
 
                     <!-- Name -->
-                    <h3 class="text-[#213D34] text-[25px] font-medium mb-[6px]">
+                    <h3 class="text-[#213D34] text-[21px] xl:text-[25px] font-medium mb-[6px]">
                         <?php the_title(); ?>
                         <span>
                             (<?php echo esc_html(get_carbon_field('mit_psy_designation')); ?>)
@@ -40,13 +40,13 @@ if ($query->have_posts()) :
                     </h3>
 
                     <!-- Qualifications -->
-                    <div class="text-[#213D34] text-[15px] leading-[26px] mt-[16px] mb-[30px]">
+                    <div class="text-[#213D34] text-[14px] md:text-[15px] leading-[26px] mt-[16px] mb-[30px] text-balance">
                         <?php echo nl2br(esc_html(get_carbon_field('mit_psy_qualification'))); ?>
                     </div>
 
                     <!-- Fee Button -->
                     <a href="<?php echo esc_url(get_carbon_field('mit_psy_cta_link')); ?>"
-                       class="inline-block bg-theme-blue hover:bg-theme-blue-hover text-white text-[16px] font-medium px-[36px] py-[14px] rounded-full transition"
+                       class="inline-block bg-theme-blue hover:bg-theme-blue-hover text-white text-[14px] md:text-[16px] font-medium px-[36px] py-[14px] rounded-full transition"
                        target="_blank"
                     >
                         <?php echo esc_html(get_carbon_field('mit_psy_cta_text')); ?>
