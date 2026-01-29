@@ -22,3 +22,10 @@
 }
 
 
+/**********************************
+    ###### Gallery Section ######
+**********************************/
+/* Optional – Fancybox already handles fullscreen */
+.fancybox__container {
+    --fancybox-bg: rgba(0, 0, 0, 0.95);
+}

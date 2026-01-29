@@ -309,33 +309,54 @@
 
             <!-- Left Image Grid -->
             <div class="image-grid grid max-[1520px]:grid-cols-2 grid-cols-3 grid-rows-2 gap-4">
-                <div class="col-span-2 row-span-2 lg:col-span-2 lg:row-span-2">
+
+                <!-- Large Image -->
+                <a href="<?php echo esc_url( wp_get_attachment_image_url( get_carbon_field('mit_sw_image_1'), 'full' ) ); ?>"
+                data-fancybox="seminar-gallery"
+                class="col-span-2 row-span-2 lg:col-span-2 lg:row-span-2 block">
+
                     <?php echo wp_get_attachment_image(
                         get_carbon_field('mit_sw_image_1'),
-                        'full',
+                        'large',
                         false,
-                        ['class' => 'rounded-[10px] w-full h-full max-[1520px]:max-h-[340px] object-cover']
+                        [
+                            'class' => 'rounded-[10px] w-full h-full max-[1520px]:max-h-[340px] object-cover cursor-zoom-in'
+                        ]
                     ); ?>
-                </div>
+                </a>
 
-                <div>
+                <!-- Small Image 1 -->
+                <a href="<?php echo esc_url( wp_get_attachment_image_url( get_carbon_field('mit_sw_image_2'), 'full' ) ); ?>"
+                data-fancybox="seminar-gallery"
+                class="block">
+
                     <?php echo wp_get_attachment_image(
                         get_carbon_field('mit_sw_image_2'),
-                        'full',
+                        'large',
                         false,
-                        ['class' => 'rounded-[10px] w-full h-full object-cover']
+                        [
+                            'class' => 'rounded-[10px] w-full h-full object-cover cursor-zoom-in'
+                        ]
                     ); ?>
-                </div>
+                </a>
 
-                <div>
+                <!-- Small Image 2 -->
+                <a href="<?php echo esc_url( wp_get_attachment_image_url( get_carbon_field('mit_sw_image_3'), 'full' ) ); ?>"
+                data-fancybox="seminar-gallery"
+                class="block">
+
                     <?php echo wp_get_attachment_image(
                         get_carbon_field('mit_sw_image_3'),
-                        'full',
+                        'large',
                         false,
-                        ['class' => 'rounded-[10px] w-full h-full object-cover']
+                        [
+                            'class' => 'rounded-[10px] w-full h-full object-cover cursor-zoom-in'
+                        ]
                     ); ?>
-                </div>
+                </a>
+
             </div>
+
 
             <!-- Right Content -->
             <div class="right-area">

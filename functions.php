@@ -8,18 +8,19 @@ function mit_scripts_enqueue() {
 	wp_enqueue_style( 'load-google-fonts-work-sans', 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap' );
 	wp_enqueue_style( 'load-google-fonts-syne', 'https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap' );
 	wp_enqueue_style( 'load-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' );
-
 	// css libraries
 	// Build Tailwind: npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --watch
 	wp_enqueue_style( 'tailwind-output', get_template_directory_uri() . '/assets/css/output.css', array(), '4.1.12', 'all' );
 
 	// css
 	wp_enqueue_style( 'owl-style', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', array(), '2.3.4', 'all' );
-	wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/main-style.css', array( 'load-google-fonts-work-sans', 'load-google-fonts-syne', 'load-font-awesome', 'tailwind-output', 'owl-style' ), '1.0.4', 'all' );
+    wp_enqueue_style( 'fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css', array(), '5.0', 'all' );
+	wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/main-style.css', array( 'load-google-fonts-work-sans', 'load-google-fonts-syne', 'load-font-awesome', 'tailwind-output', 'owl-style', 'fancybox-css' ), '1.0.4', 'all' );
 
 	// js
 	wp_enqueue_script( 'owl-script', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
-	wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/js/main-script.js', array( 'owl-script', 'jquery' ), '1.0.0', true );
+	wp_enqueue_script( 'fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js', array( 'jquery' ), '5.0', true );
+	wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/js/main-script.js', array( 'owl-script', 'fancybox-js', 'jquery' ), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'mit_scripts_enqueue' );
 

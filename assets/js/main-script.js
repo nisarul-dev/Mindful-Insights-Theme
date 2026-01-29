@@ -47,3 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   observer.observe(section);
 });
+
+
+jQuery(document).ready(function ($) {
+    Fancybox.bind('[data-fancybox="mit-gallery"]', {
+        Toolbar: true,
+        animated: true,
+        dragToClose: true,
+        placeFocusBack: false,
+    });
+});

@@ -384,3 +384,44 @@ function mit_register_psychologist_fields() {
         ) );
 }
 add_action( 'carbon_fields_register_fields', 'mit_register_psychologist_fields' );
+
+
+/**
+ * Register About Page sections using Carbon Fields
+ *
+ * This function adds structured fields for the About page only.
+ *
+ * @return void
+ */
+function mit_register_about_page_sections() {
+
+    Container::make( 'post_meta', __( 'About Page Sections', 'mindful-insights-theme' ) )
+        ->where( 'post_id', '=', 19 ) // About Page ID
+        ->add_tab( __( 'Our Mission Section', 'mindful-insights-theme' ), array(
+
+            Field::make( 'text', 'mit_om_title', __( 'Section Heading', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main heading for the section.' ),
+
+            Field::make( 'textarea', 'mit_om_subtitle', __( 'Section Subheading', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Short subheading or subtitle.' ),
+
+            Field::make( 'image', 'mit_om_image_1', __( 'Image 1', 'mindful-insights-theme' ) ),
+            Field::make( 'image', 'mit_om_image_2', __( 'Image 2', 'mindful-insights-theme' ) ),
+            Field::make( 'image', 'mit_om_image_3', __( 'Image 3', 'mindful-insights-theme' ) ),
+
+        ) )
+        ->add_tab( __( 'Gallery Section', 'mindful-insights-theme' ), array(
+            Field::make( 'text', 'mit_gallery_title', __( 'Section Heading', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main heading for the section.' ),
+
+            Field::make( 'textarea', 'mit_gallery_subtitle', __( 'Section Subheading', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Short subheading or subtitle.' ),
+
+            Field::make( 'complex', 'mit_gallery_images', 'Gallery Pictures' )
+                ->add_fields( array(
+                    Field::make( 'image', 'picture', 'Picture' ),
+                ) )
+                ->set_help_text( 'Add 6 pictures here.' ),
+        ) );
+}
+add_action( 'carbon_fields_register_fields', 'mit_register_about_page_sections' );
