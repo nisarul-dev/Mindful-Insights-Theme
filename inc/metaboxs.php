@@ -410,6 +410,23 @@ function mit_register_about_page_sections() {
             Field::make( 'image', 'mit_om_image_3', __( 'Image 3', 'mindful-insights-theme' ) ),
 
         ) )
+        ->add_tab( __( 'Healing Through Understanding', 'mindful-insights-theme' ), array(
+
+            Field::make( 'text', 'mit_ht_title', __( 'Section Title', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main heading of the section.' ),
+
+            Field::make( 'rich_text', 'mit_ht_description', __( 'Description', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main descriptive content.' ),
+
+            Field::make( 'text', 'mit_ht_button_text', __( 'Button Text', 'mindful-insights-theme' ) )
+                ->set_default_value( 'Contact Us' ),
+
+            Field::make( 'text', 'mit_ht_button_link', __( 'Button Link', 'mindful-insights-theme' ) )
+                ->set_help_text( 'URL for the CTA button.' ),
+
+            Field::make( 'image', 'mit_ht_image', __( 'Right Image', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Main image on the right side.' ),
+        ) )
         ->add_tab( __( 'Gallery Section', 'mindful-insights-theme' ), array(
             Field::make( 'text', 'mit_gallery_title', __( 'Section Heading', 'mindful-insights-theme' ) )
                 ->set_help_text( 'Main heading for the section.' ),
