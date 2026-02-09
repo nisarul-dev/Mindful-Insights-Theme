@@ -14,18 +14,18 @@ get_header()
 
         <!-- Services -->
         <?php if ( $services = get_carbon_field( 'mit_services_page_items' ) ) : ?>
-            <div class="service-item space-y-[96px]" 
-            <?php if ( isset( $service['id'] ) && ! empty( $service['id'] ) ) : ?>
-            id="<?php echo esc_attr( $service['id'] ); ?>"
-            <?php endif; ?>
-            >
+            <div class="service-item space-y-[96px]">
                 <?php foreach ( $services as $service ) : 
                     $image_position = $service['layout'] ?? 'right';
                 ?>
 
                     <div class="flex flex-col 
                         <?php echo $image_position === 'left' ? 'lg:flex-row-reverse' : 'lg:flex-row'; ?> 
-                        gap-12 items-center">
+                        gap-12 items-center"
+                        <?php if ( isset( $service['service_id'] ) && ! empty( $service['service_id'] ) ) : ?>
+                        id="<?php echo esc_attr( $service['service_id'] ); ?>"
+                        <?php endif; ?>
+                        >
 
                         <!-- Content -->
                         <div class="lg:w-1/2">

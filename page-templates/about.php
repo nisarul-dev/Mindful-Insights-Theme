@@ -81,7 +81,7 @@ get_header()
 
             <!-- Left Content -->
             <div>
-                <h2 class="text-2xl md:text-4xl font-[500] mb-6">
+                <h2 class="text-black text-balance text-center md:text-left font-[500] text-2xl md:text-4xl mb-7">
                     <?php echo esc_html( get_carbon_field('mit_ht_title') ); ?>
                 </h2>
 
@@ -90,16 +90,18 @@ get_header()
                 </div>
 
                 <?php if ( get_carbon_field('mit_ht_button_text') && get_carbon_field('mit_ht_button_link') ) : ?>
-                    <a href="<?php echo esc_url( get_carbon_field('mit_ht_button_link') ); ?>"
-                        class="inline-flex items-center gap-3 bg-theme-blue hover:bg-theme-blue-hover text-white text-lg font-medium px-8 py-4 rounded-full transition">
-
-                        <?php echo esc_html( get_carbon_field('mit_ht_button_text') ); ?>
-
-                        <svg width="18" height="15" viewBox="0 0 20 17" fill="none">
-                            <path d="M18.82 9.37L11.95 16.24C11.69 16.5 11.34 16.63 11 16.63C10.61 16.63 10.27 16.5 10.01 16.24C9.45 15.73 9.45 14.82 10.01 14.31L14.52 9.75H1.38C0.6 9.75 0 9.15 0 8.38C0 7.65 0.6 7 1.38 7H14.52L10.01 2.49C9.45 1.98 9.45 1.07 10.01 0.56C10.53 0 11.43 0 11.95 0.56L18.82 7.43C19.38 7.95 19.38 8.85 18.82 9.37Z"
-                                    fill="white"/>
-                        </svg>
-                    </a>
+                    <div class="text-center md:text-left">
+                        <a href="<?php echo esc_url( get_carbon_field('mit_ht_button_link') ); ?>"
+                            class="inline-flex items-center gap-3 bg-theme-blue hover:bg-theme-blue-hover text-white text-lg font-medium px-8 py-4 rounded-full transition">
+                        
+                            <?php echo esc_html( get_carbon_field('mit_ht_button_text') ); ?>
+                        
+                            <svg width="18" height="15" viewBox="0 0 20 17" fill="none">
+                                <path d="M18.82 9.37L11.95 16.24C11.69 16.5 11.34 16.63 11 16.63C10.61 16.63 10.27 16.5 10.01 16.24C9.45 15.73 9.45 14.82 10.01 14.31L14.52 9.75H1.38C0.6 9.75 0 9.15 0 8.38C0 7.65 0.6 7 1.38 7H14.52L10.01 2.49C9.45 1.98 9.45 1.07 10.01 0.56C10.53 0 11.43 0 11.95 0.56L18.82 7.43C19.38 7.95 19.38 8.85 18.82 9.37Z"
+                                        fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
                 <?php endif; ?>
             </div>
 

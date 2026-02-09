@@ -51,6 +51,7 @@
     --radius-2xl: 1rem;
     --radius-3xl: 1.5rem;
     --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2209,9 +2210,6 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
-  .top-\[-2px\] {
-    top: -2px;
-  }
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
@@ -2537,8 +2535,20 @@
   .mt-15 {
     margin-top: calc(var(--spacing) * 15);
   }
+  .mt-16 {
+    margin-top: calc(var(--spacing) * 16);
+  }
   .mt-18 {
     margin-top: calc(var(--spacing) * 18);
+  }
+  .mt-20 {
+    margin-top: calc(var(--spacing) * 20);
+  }
+  .mt-50 {
+    margin-top: calc(var(--spacing) * 50);
+  }
+  .mt-\[2px\] {
+    margin-top: 2px;
   }
   .mt-\[16px\] {
     margin-top: 16px;
@@ -2554,6 +2564,9 @@
   }
   .mr-\[14px\] {
     margin-right: 14px;
+  }
+  .mb-0 {
+    margin-bottom: calc(var(--spacing) * 0);
   }
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
@@ -3477,6 +3490,9 @@
   .py-\[80px\] {
     padding-block: 80px;
   }
+  .pt-5 {
+    padding-top: calc(var(--spacing) * 5);
+  }
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
@@ -3500,6 +3516,9 @@
   }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
+  }
+  .pb-8 {
+    padding-bottom: calc(var(--spacing) * 8);
   }
   .pb-20 {
     padding-bottom: calc(var(--spacing) * 20);
@@ -4340,24 +4359,9 @@
       padding-top: calc(var(--spacing) * 20);
     }
   }
-  .lg\:pb-25 {
-    @media (width >= 64rem) {
-      padding-bottom: calc(var(--spacing) * 25);
-    }
-  }
   .lg\:pb-27 {
     @media (width >= 64rem) {
       padding-bottom: calc(var(--spacing) * 27);
-    }
-  }
-  .lg\:pb-28 {
-    @media (width >= 64rem) {
-      padding-bottom: calc(var(--spacing) * 28);
-    }
-  }
-  .lg\:pb-30 {
-    @media (width >= 64rem) {
-      padding-bottom: calc(var(--spacing) * 30);
     }
   }
   .lg\:text-left {

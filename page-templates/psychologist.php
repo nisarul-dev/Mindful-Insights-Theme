@@ -49,7 +49,8 @@ if ($query->have_posts()) :
                        class="inline-block bg-theme-blue hover:bg-theme-blue-hover text-white text-[14px] md:text-[16px] font-medium px-[36px] py-[14px] rounded-full transition"
                        target="_blank"
                     >
-                        <?php echo esc_html(get_carbon_field('mit_psy_cta_text')); ?>
+                        <?php echo esc_html(get_carbon_field('mit_psy_cta_text')); ?> 
+                        <span style="font-size: 0.75em;"> ( <?php echo esc_html(get_carbon_field('mit_psy_fee')); ?>  )</span>
                     </a>
 
                 </div>
