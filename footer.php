@@ -67,7 +67,14 @@
         </div>
     </div>
     <div class="w-full py-5 mt-12 bg-white">
-            <p class="text-center">© 2025 Mindful Insights. All rights reserved.</p>
+            <?php
+            echo wp_kses_post(
+                apply_filters(
+                    'the_content',
+                    get_carbon_field( 'mit_footer_copyright_text', '', 'options' )
+                )
+            );
+            ?>
         </div>
     </div>
 </footer>

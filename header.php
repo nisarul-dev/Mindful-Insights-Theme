@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php wp_head(); ?>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="x9TSKZKKX50rQG72p4g/Rw" async></script>
+
 </head>
 
 <body <?php body_class(); ?>>
