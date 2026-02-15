@@ -9,7 +9,7 @@ get_header()
 <?php get_template_part( 'template-parts/banner-1' ); ?>
 
 <!-- Services Section Starts -->
-<section class="services-page-section py-[78px]">
+<section class="services-page-section pt-[58px] lg:pt-[78px] pb-[78px]">
     <div class="container mx-auto px-5 lg:px-2">
 
         <!-- Services -->
@@ -19,7 +19,7 @@ get_header()
                     $image_position = $service['layout'] ?? 'right';
                 ?>
 
-                    <div class="flex flex-col 
+                    <div class="flex flex-col-reverse  
                         <?php echo $image_position === 'left' ? 'lg:flex-row-reverse' : 'lg:flex-row'; ?> 
                         gap-12 items-center"
                         <?php if ( isset( $service['service_id'] ) && ! empty( $service['service_id'] ) ) : ?>

@@ -79,7 +79,7 @@ get_header()
 
           <a href="tel:+8801774848960"
             class="block text-sm sm:text-base text-center mt-11 w-full bg-theme-blue hover:bg-theme-blue-hover text-white py-3 px-1 rounded-full transition">
-            Call Now For Free Consultation
+            Call Now For Consultation
           </a>
 
           <a href="https://wa.me/8801774848960?text=Hello,%20I%20would%20like%20to%20book%20an%20appointment."
@@ -91,6 +91,17 @@ get_header()
                 Message Us on WhatsApp
             </div>
           </a>
+
+          <a href="http://m.me/mindfulinsightsbd"
+            class="block text-sm sm:text-base text-center mt-4 w-full bg-[#40b0ff] hover:bg-blue-800 text-white py-3 px-1 rounded-full transition"
+            target="_blank"
+          >
+            <div class="flex gap-2 justify-center">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/messenger-icon.ico'; ?>" height="25" width="25" alt="Whatsapp icon">
+                Message Us on Messenger
+            </div>
+          </a>
+
         </div>
 
         <!-- Why Choose Us -->
@@ -122,13 +133,6 @@ get_header()
               <span>Ethical &amp; Confidential Care</span>
             </li>
 
-            <!-- Qualified Psychologists -->
-            <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-5-4m-6 6H2v-2a4 4 0 015-4m6-4a4 4 0 11-8 0 4 4 0 018 0zm6 0a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>Easy access to qualified psychologists</span>
-            </li>
           </ul>
 
         </div>

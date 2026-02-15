@@ -312,7 +312,7 @@
 <!-- Latest Articles and Video Section Ends -->
 
 <!-- Seminar & Workshops Section Starts -->
-<section class="seminar-workshops-section py-[78px] max-md:py-[40px] bg-[#F2FAFF]">
+<section class="seminar-workshops-section py-[78px] max-md:py-[40px] bg-[#F2FAFF]" id="seminar-workshops-section">
     <div class="container mx-auto px-5 lg:px-2 max-sm:pt-5">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 

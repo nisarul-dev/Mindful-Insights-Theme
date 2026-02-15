@@ -20,9 +20,9 @@ if ($query->have_posts()) :
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-[40px]">
 
-            <?php while ($query->have_posts()) : $query->the_post(); ?>
+            <?php while ($query->have_posts()) : $query->the_post(); global $post; ?>
 
-                <div class="bg-[#F2FAFF] px-[18px] md:px-[58px] py-[63px] text-center md:text-left">
+                <div class="bg-[#F2FAFF] px-[18px] md:px-[58px] py-[63px] text-center md:text-left" id="<?php echo esc_attr( $post->post_name ); ?>">
 
                     <!-- Avatar -->
                     <?php if (has_post_thumbnail()) : ?>
