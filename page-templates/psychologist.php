@@ -5,6 +5,9 @@
 
 get_header()
 ?>
+
+<?php get_template_part( 'template-parts/banner-1' ); ?>
+
 <?php
 $args = array(
     'post_type'      => 'psychologist',
