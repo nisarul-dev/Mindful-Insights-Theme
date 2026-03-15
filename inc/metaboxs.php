@@ -110,6 +110,19 @@ function mit_register_theme_options() {
             Field::make( 'text', 'crb_facebook_link', __( 'Facebook Link', 'mindful-insights-theme' ) ),
             Field::make( 'text', 'crb_twitter_link', __( 'Twitter Link', 'mindful-insights-theme' ) ),
         ) );
+
+    // reCAPTCHA v3 Settings.
+    Container::make( 'theme_options', __( 'reCAPTCHA v3' ) )
+        ->set_page_parent( $basic_options_container )
+        ->add_fields( array(
+            Field::make( 'text', 'mit_recaptcha_site_key', __( 'Site Key', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Get your keys from: https://www.google.com/recaptcha/admin — choose reCAPTCHA v3.' ),
+            Field::make( 'text', 'mit_recaptcha_secret_key', __( 'Secret Key', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Keep this secret. Never share or expose it publicly.' ),
+            Field::make( 'text', 'mit_recaptcha_threshold', __( 'Minimum Score Threshold', 'mindful-insights-theme' ) )
+                ->set_default_value( '0.5' )
+                ->set_help_text( 'Score from 0.0 (bot) to 1.0 (human). Google recommends 0.5. Lower = more permissive.' ),
+        ) );
 }
 add_action( 'carbon_fields_register_fields', 'mit_register_theme_options' );
 

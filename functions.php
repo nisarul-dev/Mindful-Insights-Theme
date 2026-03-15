@@ -23,7 +23,7 @@ function mit_scripts_enqueue() {
 	wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/js/main-script.js', array( 'fancybox-js', 'jquery' ), '1.0.0', true );
 
 	// Assessment System — only load on assessment pages.
-	if ( is_singular( 'assessment' ) || is_post_type_archive( 'assessment' ) ) {
+	if ( is_singular( 'assessment' ) ) {
 		wp_enqueue_style(
 			'assessment-style',
 			get_template_directory_uri() . '/assets/css/assessment.css',
@@ -32,12 +32,40 @@ function mit_scripts_enqueue() {
 			'all'
 		);
 
+		// reCAPTCHA v3 — load only when site key is configured.
+		$recaptcha_site_key = get_carbon_field( 'mit_recaptcha_site_key', '', 'options' );
+		if ( $recaptcha_site_key ) {
+			wp_enqueue_script(
+				'google-recaptcha-v3',
+				'https://www.google.com/recaptcha/api.js?render=' . urlencode( $recaptcha_site_key ),
+				array(),
+				null,
+				false // Load in <head> — required by reCAPTCHA.
+			);
+		}
+
 		wp_enqueue_script(
 			'assessment-script',
 			get_template_directory_uri() . '/assets/js/assessment.js',
 			array( 'jquery' ),
 			'1.0.0',
 			true
+		);
+
+		wp_localize_script( 'assessment-script', 'assessmentData', array(
+			'recaptchaSiteKey' => $recaptcha_site_key,
+			'recaptchaEnabled' => ! empty( $recaptcha_site_key ) ? 'yes' : 'no',
+		) );
+	}
+
+	// Archive page only needs CSS.
+	if ( is_post_type_archive( 'assessment' ) ) {
+		wp_enqueue_style(
+			'assessment-style',
+			get_template_directory_uri() . '/assets/css/assessment.css',
+			array( 'main-style' ),
+			'1.0.0',
+			'all'
 		);
 	}
 }
