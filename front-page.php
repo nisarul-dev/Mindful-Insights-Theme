@@ -39,7 +39,7 @@
         </h1>
 
         <?php if (get_carbon_field('mit_woc_slides')): ?>
-            <div class="carousel w-full">
+            <div class="carousel w-full overflow-y-hidden">
                 <?php
                 $i = 1;
                 $slides = get_carbon_field('mit_woc_slides');

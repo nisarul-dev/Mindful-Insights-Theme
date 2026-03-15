@@ -3230,6 +3230,9 @@
   .overflow-hidden {
     overflow: hidden;
   }
+  .overflow-y-hidden {
+    overflow-y: hidden;
+  }
   .menu-sm {
     :where(li:not(.menu-title) > *:not(ul, details, .menu-title)), :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
       border-radius: var(--radius-field);
@@ -3323,9 +3326,6 @@
   }
   .bg-\[\#128C7E\] {
     background-color: #128C7E;
-  }
-  .bg-\[\#BB40FF\] {
-    background-color: #BB40FF;
   }
   .bg-\[\#DA0000\] {
     background-color: #DA0000;
@@ -3476,12 +3476,6 @@
   }
   .py-\[40px\] {
     padding-block: 40px;
-  }
-  .py-\[48px\] {
-    padding-block: 48px;
-  }
-  .py-\[58px\] {
-    padding-block: 58px;
   }
   .py-\[60px\] {
     padding-block: 60px;
@@ -4357,11 +4351,6 @@
   .lg\:py-20 {
     @media (width >= 64rem) {
       padding-block: calc(var(--spacing) * 20);
-    }
-  }
-  .lg\:py-\[78px\] {
-    @media (width >= 64rem) {
-      padding-block: 78px;
     }
   }
   .lg\:pt-20 {
