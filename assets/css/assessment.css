@@ -1,0 +1,175 @@
+/**
+ * Assessment System Styles
+ * Styles for the assessment form, questions, options, and result card.
+ *
+ * @package mindful-insights-theme
+ */
+
+/* ============================================================
+   Form Base
+   ============================================================ */
+.form-label {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #333;
+    background: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #2563eb;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.form-input.has-error {
+    border-color: #ef4444;
+    background: #fff7f7;
+}
+
+.field-error {
+    display: block;
+    font-size: 0.8125rem;
+    color: #ef4444;
+    margin-top: 6px;
+    min-height: 1.2em;
+}
+
+/* ============================================================
+   Assessment Cards (shared wrapper)
+   ============================================================ */
+.assessment-card {
+    transition: box-shadow 0.25s ease;
+}
+
+.assessment-card:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   Question + Option Pills
+   ============================================================ */
+.question-number {
+    background: #f0f4ff;
+    color: #2563eb;
+    border: 2px solid #bfdbfe;
+}
+
+.option-label {
+    background: #f9fafb;
+    position: relative;
+}
+
+.option-label:hover,
+.option-label:hover .option-text {
+    color: #1d4ed8;
+}
+
+.option-label.selected {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.option-label.selected .radio-indicator {
+    border-color: #2563eb;
+}
+
+.option-label.selected .radio-indicator span {
+    transform: scale(1);
+    background: #2563eb;
+}
+
+.option-label.selected .option-text {
+    color: #1d4ed8;
+    font-weight: 500;
+}
+
+/* Question error highlight */
+.assessment-question-card.has-error {
+    border: 2px solid #fca5a5;
+}
+
+.question-error {
+    display: block;
+    font-size: 0.8125rem;
+    color: #ef4444;
+    margin-bottom: 10px;
+    min-height: 1.2em;
+}
+
+/* ============================================================
+   Submit Button Animations
+   ============================================================ */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 0.8s linear infinite;
+}
+
+/* ============================================================
+   Result Card
+   ============================================================ */
+.assessment-result-card {
+    animation: resultReveal 0.5s ease forwards;
+}
+
+@keyframes resultReveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.score-badge {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+}
+
+/* ============================================================
+   Archive Card Line Clamp
+   ============================================================ */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 768px) {
+    .assessment-form-section .max-w-3xl {
+        padding: 0;
+    }
+
+    .assessment-card {
+        padding: 20px;
+    }
+
+    .option-label {
+        padding: 12px;
+    }
+}

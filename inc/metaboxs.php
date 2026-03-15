@@ -442,3 +442,123 @@ function mit_register_about_page_sections() {
         ) );
 }
 add_action( 'carbon_fields_register_fields', 'mit_register_about_page_sections' );
+
+
+// ============================================================
+// ASSESSMENT META FIELDS
+// ============================================================
+
+/**
+ * Register Assessment Settings metabox.
+ * Covers: description, optional banner image, archive visibility toggle.
+ */
+function mit_register_assessment_settings() {
+    Container::make( 'post_meta', __( 'Assessment Settings', 'mindful-insights-theme' ) )
+        ->where( 'post_type', '=', 'assessment' )
+        ->add_fields( array(
+
+            Field::make( 'rich_text', 'mit_assessment_description', __( 'Description / Intro Text', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Introduction shown to visitors before they start the assessment.' ),
+
+            Field::make( 'image', 'mit_assessment_banner_image', __( 'Banner Image (Optional)', 'mindful-insights-theme' ) )
+                ->set_help_text( 'Optional banner image displayed at the top of the assessment page.' ),
+
+            Field::make( 'checkbox', 'mit_assessment_show_in_archive', __( 'Show in Archive', 'mindful-insights-theme' ) )
+                ->set_option_value( 'yes' )
+                ->set_help_text( 'Check to display this assessment on the public assessments archive page.' ),
+
+        ) );
+}
+add_action( 'carbon_fields_register_fields', 'mit_register_assessment_settings' );
+
+
+/**
+ * Register Assessment Questions metabox.
+ * Uses nested complex fields: questions → options (text + score).
+ */
+function mit_register_assessment_questions() {
+    Container::make( 'post_meta', __( 'Assessment Questions', 'mindful-insights-theme' ) )
+        ->where( 'post_type', '=', 'assessment' )
+        ->add_fields( array(
+
+            Field::make( 'complex', 'mit_assessment_questions', __( 'Questions', 'mindful-insights-theme' ) )
+                ->set_layout( 'tabbed-vertical' )
+                ->setup_labels( array(
+                    'plural_name'   => 'Questions',
+                    'singular_name' => 'Question',
+                ) )
+                ->add_fields( array(
+
+                    Field::make( 'text', 'question_text', __( 'Question Text', 'mindful-insights-theme' ) )
+                        ->set_required( true )
+                        ->set_help_text( 'Enter the full question text (Bengali or English).' ),
+
+                    Field::make( 'complex', 'options', __( 'Answer Options', 'mindful-insights-theme' ) )
+                        ->setup_labels( array(
+                            'plural_name'   => 'Options',
+                            'singular_name' => 'Option',
+                        ) )
+                        ->add_fields( array(
+                            Field::make( 'text', 'option_text', __( 'Option Text', 'mindful-insights-theme' ) )
+                                ->set_required( true )
+                                ->set_help_text( 'e.g. একেবারেই হয় না' ),
+
+                            Field::make( 'text', 'option_score', __( 'Score Value', 'mindful-insights-theme' ) )
+                                ->set_required( true )
+                                ->set_help_text( 'Numeric score for this option, e.g. 0, 1, 2, 3, 4' )
+                                ->set_attribute( 'type', 'number' )
+                                ->set_attribute( 'min', '0' ),
+                        ) )
+                        ->set_help_text( 'Add all answer options for this question.' ),
+
+                ) )
+                ->set_help_text( 'Add all questions for this assessment. Each question must have at least two answer options.' ),
+
+        ) );
+}
+add_action( 'carbon_fields_register_fields', 'mit_register_assessment_questions' );
+
+
+/**
+ * Register Assessment Score Ranges metabox.
+ * Admin defines min score, max score, result title, result description.
+ */
+function mit_register_assessment_score_ranges() {
+    Container::make( 'post_meta', __( 'Score Ranges & Results', 'mindful-insights-theme' ) )
+        ->where( 'post_type', '=', 'assessment' )
+        ->add_fields( array(
+
+            Field::make( 'complex', 'mit_assessment_score_ranges', __( 'Score Ranges', 'mindful-insights-theme' ) )
+                ->set_layout( 'tabbed-vertical' )
+                ->setup_labels( array(
+                    'plural_name'   => 'Score Ranges',
+                    'singular_name' => 'Score Range',
+                ) )
+                ->add_fields( array(
+
+                    Field::make( 'text', 'min_score', __( 'Minimum Score', 'mindful-insights-theme' ) )
+                        ->set_required( true )
+                        ->set_attribute( 'type', 'number' )
+                        ->set_attribute( 'min', '0' )
+                        ->set_help_text( 'Minimum total score for this result range (inclusive).' ),
+
+                    Field::make( 'text', 'max_score', __( 'Maximum Score', 'mindful-insights-theme' ) )
+                        ->set_required( true )
+                        ->set_attribute( 'type', 'number' )
+                        ->set_attribute( 'min', '0' )
+                        ->set_help_text( 'Maximum total score for this result range (inclusive).' ),
+
+                    Field::make( 'text', 'result_title', __( 'Result Title', 'mindful-insights-theme' ) )
+                        ->set_required( true )
+                        ->set_help_text( 'e.g. বিষণ্নতা নেই' ),
+
+                    Field::make( 'rich_text', 'result_description', __( 'Result Description', 'mindful-insights-theme' ) )
+                        ->set_help_text( 'Detailed description shown to the visitor after submission.' ),
+
+                ) )
+                ->set_help_text( 'Define score ranges and their corresponding results. Ranges should not overlap.' ),
+
+        ) );
+}
+add_action( 'carbon_fields_register_fields', 'mit_register_assessment_score_ranges' );
+

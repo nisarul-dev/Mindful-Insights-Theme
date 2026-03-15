@@ -21,6 +21,25 @@ function mit_scripts_enqueue() {
 	// wp_enqueue_script( 'owl-script', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
 	wp_enqueue_script( 'fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js', array( 'jquery' ), '5.0', true );
 	wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/js/main-script.js', array( 'fancybox-js', 'jquery' ), '1.0.0', true );
+
+	// Assessment System — only load on assessment pages.
+	if ( is_singular( 'assessment' ) || is_post_type_archive( 'assessment' ) ) {
+		wp_enqueue_style(
+			'assessment-style',
+			get_template_directory_uri() . '/assets/css/assessment.css',
+			array( 'main-style' ),
+			'1.0.0',
+			'all'
+		);
+
+		wp_enqueue_script(
+			'assessment-script',
+			get_template_directory_uri() . '/assets/js/assessment.js',
+			array( 'jquery' ),
+			'1.0.0',
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'mit_scripts_enqueue' );
 
@@ -77,6 +96,28 @@ if ( file_exists( get_template_directory() . '/inc/nav-walker-class.php' ) ) {
  */
 if ( file_exists( get_template_directory() . '/inc/cpts.php' ) ) {
 	include_once get_template_directory() . '/inc/cpts.php';
+}
+
+/**
+ * Including Assessment DB (custom table + CRUD) — must come before handler.
+ */
+if ( file_exists( get_template_directory() . '/inc/assessment-db.php' ) ) {
+	include_once get_template_directory() . '/inc/assessment-db.php';
+}
+
+/**
+ * Including Assessment Form Handler (template_redirect, PRG pattern)
+ */
+if ( file_exists( get_template_directory() . '/inc/assessment-handler.php' ) ) {
+	include_once get_template_directory() . '/inc/assessment-handler.php';
+}
+
+
+/**
+ * Including Assessment Submissions Admin Page
+ */
+if ( file_exists( get_template_directory() . '/inc/assessment-submissions-admin.php' ) ) {
+	include_once get_template_directory() . '/inc/assessment-submissions-admin.php';
 }
 
 /**
