@@ -161,8 +161,16 @@ $questions       = carbon_get_the_post_meta( 'mit_assessment_questions' );
 
             <form id="assessment-form" method="POST" action="<?php echo esc_url( get_permalink() ); ?>" novalidate>
                 <?php wp_nonce_field( 'mit_assessment_submit', 'mit_assessment_nonce' ); ?>
-                <input type="hidden" name="assessment_id"      value="<?php echo esc_attr( $assessment_id ); ?>">
+                <input type="hidden" name="assessment_id"       value="<?php echo esc_attr( $assessment_id ); ?>">
                 <input type="hidden" name="mit_submit_assessment" value="1">
+
+                <!-- Honeypot: hidden from real users, bots auto-fill it → immediately rejected by server -->
+                <div class="mit-hp-wrap" aria-hidden="true">
+                    <label for="mit_hp_field">Leave this field empty</label>
+                    <input type="text" id="mit_hp_field" name="mit_hp_field"
+                           value="" tabindex="-1" autocomplete="off">
+                </div>
+
 
                 <!-- ══ VISITOR INFO ══ -->
                 <div class="assessment-card bg-white rounded-[24px] shadow-sm p-8 mb-8">

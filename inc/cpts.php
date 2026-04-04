@@ -22,8 +22,8 @@ function mit_register_psychologist_cpt() {
         'public'             => true,
         'menu_icon'          => 'dashicons-businessperson',
         'supports'           => array( 'title', 'thumbnail' ),
-        'has_archive'        => true,
-        'rewrite'            => array( 'slug' => 'psychologists' ),
+        'has_archive'        => false,
+        'rewrite'            => array( 'slug' => 'psychologist' ),
         'show_in_rest'       => true,
     );
 
