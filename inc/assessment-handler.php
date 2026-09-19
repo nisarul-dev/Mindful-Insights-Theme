@@ -429,13 +429,43 @@ function mit_send_assessment_result_email( $to, $visitor_name, $assessment_name,
 	$message .= '<p style="color:#888;font-size:12px;">এই ইমেইলটি ' . esc_html( $site_name ) . ' থেকে স্বয়ংক্রিয়ভাবে পাঠানো হয়েছে।</p>';
 	$message .= '</body></html>';
 
-	wp_mail(
-		$to,
-		$subject,
-		$message,
-		array(
-			'Content-Type: text/html; charset=UTF-8',
-			'From: ' . $site_name . ' <' . $admin_mail . '>',
-		)
+	$headers = array(
+		'Content-Type: text/html; charset=UTF-8',
+		'From: ' . $site_name . ' <' . $admin_mail . '>',
 	);
+
+	// Wrap in try/catch: if the server has PHP mail() disabled or SMTP
+	// is misconfigured, PHPMailer throws an exception. We catch it so
+	// the form submission still succeeds and the result is shown.
+	try {
+		wp_mail( $to, $subject, $message, $headers );
+	} catch ( \Exception $e ) {
+		if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			error_log( '[MIT Assessment] Email send failed for ' . $to . ': ' . $e->getMessage() );
+		}
+	} catch ( \Error $e ) {
+		// Catches fatal errors like "Call to undefined function mail()" which
+		// PHP 7+ promotes to Error objects in some configurations.
+		if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			error_log( '[MIT Assessment] Email fatal error for ' . $to . ': ' . $e->getMessage() );
+		}
+	}
 }
+
+/**
+ * Log wp_mail() failures (e.g. SMTP auth errors) to the debug log.
+ * Hooked to wp_mail_failed — fires after a wp_mail() error.
+ *
+ * @param \WP_Error $error WordPress error object from PHPMailer.
+ */
+function mit_log_mail_failure( $error ) {
+	if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+		error_log( '[MIT Assessment] wp_mail failed: ' . $error->get_error_message() );
+	}
+}
+add_action( 'wp_mail_failed', 'mit_log_mail_failure' );
+
+

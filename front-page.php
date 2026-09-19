@@ -398,25 +398,27 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <?php foreach ($cards as $index => $card): ?>
-                    <div class="group rounded-[24px] p-10 shadow bg-[#F8F9FA] text-gray-800 hover:bg-[#1E3A8A] hover:text-white">
-                        <p class="text-lg leading-relaxed mb-10">
+                    <div class="group rounded-[24px] p-10 shadow bg-[#F8F9FA] text-gray-800 hover:bg-[#1E3A8A] hover:text-white flex flex-col justify-between">
+                        <p class="text-[17px] leading-relaxed mb-10">
                             “<?php echo esc_html($card['feedback']); ?>”
                         </p>
 
-                        <div class="flex justify-end group-hover:invert">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="21" viewBox="0 0 29 21" fill="none">
-                            <path d="M5.31366 0H14.4099L5.76398 21H0L5.31366 0ZM19.9037 0H29L20.354 21H14.5L19.9037 0Z" fill="#213D34"/>
-                            </svg>
-                        </div>
-
-                        <div class="flex items-center gap-4 mt-5">
-                            <?php echo wp_get_attachment_image($card['avatar'], 'thumbnail', false, [
-                                'class' => 'w-[55px] h-[55px] rounded-full object-cover'
-                            ]); ?>
-
-                            <h4 class="text-lg">
-                                <?php echo esc_html($card['name']); ?>
-                            </h4>
+                        <div class="bottom-part">
+                            <div class="flex justify-end group-hover:invert">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="21" viewBox="0 0 29 21" fill="none">
+                                <path d="M5.31366 0H14.4099L5.76398 21H0L5.31366 0ZM19.9037 0H29L20.354 21H14.5L19.9037 0Z" fill="#213D34"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 mt-5">
+                                <?php echo wp_get_attachment_image($card['avatar'], 'thumbnail', false, [
+                                    'class' => 'w-[55px] h-[55px] rounded-full object-cover'
+                                ]); ?>
+                            
+                                <h4 class="text-lg">
+                                    <?php echo esc_html($card['name']); ?>
+                                </h4>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
