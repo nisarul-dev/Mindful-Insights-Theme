@@ -56,18 +56,20 @@
                             <article class="post-card mb-10">
                                 
                                 <?php if (has_post_thumbnail()): ?>
-                                <div class="image-container rounded-[20px] overflow-hidden relative mb-6 group">
+                                <?php $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
+                                <div class="image-container rounded-[20px] overflow-hidden relative mb-6 group post-card-image-wrap"
+                                     style="--thumb-url: url('<?php echo esc_url($thumb_url); ?>')">
 
-                                    <a href="<?php echo esc_url(get_the_permalink()); ?>" class="block relative">
+                                    <a href="<?php echo esc_url(get_the_permalink()); ?>" class="block relative post-card-image-link">
 
                                         <?php the_post_thumbnail(
                                             'full',
-                                            array('class' => 'w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-300')
+                                            array('class' => 'post-card-img w-full h-[250px] object-cover md:object-contain md:relative md:z-10 group-hover:scale-105 transition-transform duration-300')
                                         ); ?>
 
                                         <?php if ($is_video): ?>
                                             <!-- PLAY ICON OVERLAY -->
-                                            <span class="absolute inset-0 flex items-center justify-center">
+                                            <span class="absolute inset-0 flex items-center justify-center z-20">
                                                 <svg width="90" height="90" viewBox="0 0 24 24" fill="white" stroke="#24417C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     class="drop-shadow-lg">
@@ -78,7 +80,7 @@
 
                                     </a>
 
-                                    <div class="post-date absolute bottom-0 left-0 text-[14px] px-[16px] py-[8px] bg-[#F5F5F5]">
+                                    <div class="post-date absolute bottom-0 left-0 text-[14px] px-[16px] py-[8px] bg-[#F5F5F5] z-20">
                                         <?php echo esc_html(get_the_date('M j, Y')); ?>
                                     </div>
 

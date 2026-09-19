@@ -2388,6 +2388,9 @@
   .z-10 {
     z-index: 10;
   }
+  .z-20 {
+    z-index: 20;
+  }
   .col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -4319,6 +4322,16 @@
       line-height: var(--tw-leading, var(--text-base--line-height));
     }
   }
+  .md\:relative {
+    @media (width >= 48rem) {
+      position: relative;
+    }
+  }
+  .md\:z-10 {
+    @media (width >= 48rem) {
+      z-index: 10;
+    }
+  }
   .md\:col-span-2 {
     @media (width >= 48rem) {
       grid-column: span 2 / span 2;
@@ -4357,6 +4370,11 @@
   .md\:gap-12 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:object-contain {
+    @media (width >= 48rem) {
+      object-fit: contain;
     }
   }
   .md\:p-\[20px\] {
@@ -4949,6 +4967,33 @@
   @media (width >= 48rem) {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+}
+@media (min-width: 768px) {
+  .post-card-image-wrap {
+    position: relative;
+  }
+  .post-card-image-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--thumb-url);
+    background-size: cover;
+    background-position: center;
+    filter: blur(18px) brightness(0.85) saturate(1.2);
+    transform: scale(1.08);
+    z-index: 0;
+    border-radius: inherit;
+  }
+  .post-card-image-link {
+    position: relative;
+    z-index: 1;
+  }
+  .post-card-img {
+    position: relative;
+    z-index: 1;
+    height: 250px;
+    object-fit: contain;
   }
 }
 @layer base {

@@ -108,3 +108,38 @@
 .cf7-submit {
   @apply w-full bg-theme-blue hover:bg-theme-blue-hover hover:cursor-pointer text-white font-semibold py-4 px-2 rounded-full text-base md:text-lg;
 }
+
+/* ── Post card image: mobile = cover, desktop = contain + blurred backdrop ── */
+
+/* Desktop: blurred background via ::before pseudo-element */
+@media (min-width: 768px) {
+    .post-card-image-wrap {
+        position: relative;
+    }
+
+    .post-card-image-wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: var(--thumb-url);
+        background-size: cover;
+        background-position: center;
+        filter: blur(18px) brightness(0.85) saturate(1.2);
+        transform: scale(1.08); /* hide blur edge artifacts */
+        z-index: 0;
+        border-radius: inherit;
+    }
+
+    .post-card-image-link {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Make the actual image sit above the blurred backdrop */
+    .post-card-img {
+        position: relative;
+        z-index: 1;
+        height: 250px;
+        object-fit: contain;
+    }
+}
